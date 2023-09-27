@@ -34,6 +34,14 @@ class CalculatorTest {
     }
 
     @Test
+    void test_ajout_max(){
+        int a = Integer.MAX_VALUE;
+        int b = 1;
+
+        assertThrows(ArithmeticException.class, () -> calculator.add(a, b));
+    }
+
+    @Test
     void test_division_positif() {
         int resultat = calculator.divide(1, 1);
         assertEquals(1, resultat);
