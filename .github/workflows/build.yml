@@ -29,5 +29,5 @@ jobs:
         if: success() || failure()
         with:
           name: JUnit Tests
-          path: build/test-results/test/TEST-*.xml13
+          path: build/test-results/test/TEST-*.xml
           reporter: java-junit
