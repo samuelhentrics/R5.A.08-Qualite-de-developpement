@@ -6,6 +6,9 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class CalculatorTest {
@@ -76,6 +79,35 @@ class CalculatorTest {
         int resultatFinal = calculator.add(a, b);
         assertEquals(resultatAttendu, resultatFinal);
     }
+
+    @Test
+    void test_ensemble_chiffres_positif() {
+        Set<Integer> resultat = calculator.ensembleChiffres(7679);
+        Set<Integer> attendu = new HashSet<>();
+        attendu.add(6);
+        attendu.add(7);
+        attendu.add(9);
+
+        assertEquals(attendu, resultat);
+    }
+
+    @Test
+    void test_ensemble_chiffres_negatif() {
+        Set<Integer> resultat = calculator.ensembleChiffres(-11);
+        Set<Integer> attendu = new HashSet<>();
+        attendu.add(1);
+
+        assertEquals(attendu, resultat);
+    }
+
+    @Test
+    void test_ensemble_chiffres_zero() {
+        Set<Integer> resultat = calculator.ensembleChiffres(0);
+        Set<Integer> attendu = new HashSet<>();
+
+        assertEquals(attendu, resultat);
+    }
+
 
     @AfterEach
     void tearDown() {
