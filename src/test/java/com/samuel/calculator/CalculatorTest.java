@@ -22,6 +22,7 @@ class CalculatorTest {
     void test_ajout_positif() {
         int resultat = calculator.add(1, 1);
         assertEquals(2, resultat);
+        
     }
 
     @Test
