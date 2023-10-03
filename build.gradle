@@ -2,6 +2,7 @@ plugins {
 	id 'java'
 	id 'eclipse' // optional (to generate Eclipse project files)
 	id 'idea' // optional (to generate IntelliJ IDEA project files)
+	id 'jacoco' // optional (to generate test coverage reports)
 }
 
 repositories {
@@ -17,5 +18,14 @@ test {
 	useJUnitPlatform()
 	testLogging {
 		events "passed", "skipped", "failed"
+	}
+	finalizedBy jacocoTestReport // Cette ligne ajoutera le rapport Jacoco après l'exécution des tests
+}
+
+jacocoTestReport {
+	reports {
+		xml.required = false
+		csv.required = false
+		html.outputLocation = layout.buildDirectory.dir('build/reports/jacoco/test')
 	}
 }
